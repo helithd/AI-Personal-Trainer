@@ -2,6 +2,7 @@
 
 Control your workout routine with an AI-powered trainer that counts your bicep curl reps in real-time using computer vision techniques!
 
+https://github.com/user-attachments/assets/7f94f6b4-b06f-4c98-8d31-e0ca2f8a22f3
 
 ## Description
 
