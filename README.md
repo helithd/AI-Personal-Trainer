@@ -23,5 +23,5 @@ The AI trainer detects the following actions based on your arm's position and mo
 Clone the repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/your-username/AI-Trainer-Bicep-Curl.git
+https://github.com/helithd/AI-Personal-Trainer.git
 
