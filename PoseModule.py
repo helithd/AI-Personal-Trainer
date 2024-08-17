@@ -8,6 +8,7 @@ import urllib.request
 # Bypass SSL verification (only if absolutely necessary)
 ssl._create_default_https_context = ssl._create_unverified_context
 
+
 class poseDetector():
 
     def __init__(self, mode=False, upBody=False, smooth=True, detectionCon=0.5, trackCon=0.5):
@@ -34,6 +35,7 @@ class poseDetector():
             if draw:
                 self.mpDraw.draw_landmarks(img, self.results.pose_landmarks, self.mpPose.POSE_CONNECTIONS)
         return img
+
     def findPosition(self, img, draw=True):
         self.lmList = []
         if self.results.pose_landmarks:
@@ -48,12 +50,12 @@ class poseDetector():
 
     def findAngle(self, img, p1, p2, p3, draw=True):
 
-        #get the landmarks
+        # get the landmarks
         x1, y1 = self.lmList[p1][1:]
         x2, y2 = self.lmList[p2][1:]
         x3, y3 = self.lmList[p3][1:]
 
-        #calculate the angle
+        # calculate the angle
         angle = math.degrees(math.atan2(y3 - y2, x3 - x2) - math.atan2(y1 - y2, x1 - x2))
         if angle < 0:
             angle += 360
@@ -69,7 +71,7 @@ class poseDetector():
             cv2.circle(img, (x2, y2), 25, (0, 0, 255), 2)
             cv2.circle(img, (x3, y3), 20, (0, 0, 255), cv2.FILLED)
             cv2.circle(img, (x3, y3), 25, (0, 0, 255), 2)
-            #cv2.putText(img, str(int(angle)), (x2 + 50, y2 + 20), cv2.FONT_HERSHEY_PLAIN, 5, (0, 0, 255), 5)
+            # cv2.putText(img, str(int(angle)), (x2 + 50, y2 + 20), cv2.FONT_HERSHEY_PLAIN, 5, (0, 0, 255), 5)
         return angle
 
 
@@ -90,6 +92,7 @@ def main():
         cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
         cv2.imshow("Image", img)
         cv2.waitKey(1)
+
 
 if __name__ == "__main__":
     main()
